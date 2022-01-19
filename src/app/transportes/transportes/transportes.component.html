@@ -1,0 +1,61 @@
+<div class="container">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="pills-bus-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-bus"
+        type="button"
+        role="tab"
+        aria-controls="pills-bus"
+        aria-selected="true"
+        routerLink="/onibus"
+      >
+        <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M18,11H6V6H18M16.5,17A1.5,1.5 0 0,1 15,15.5A1.5,1.5 0 0,1 16.5,14A1.5,1.5 0 0,1 18,15.5A1.5,1.5 0 0,1 16.5,17M7.5,17A1.5,1.5 0 0,1 6,15.5A1.5,1.5 0 0,1 7.5,14A1.5,1.5 0 0,1 9,15.5A1.5,1.5 0 0,1 7.5,17M4,16C4,16.88 4.39,17.67 5,18.22V20A1,1 0 0,0 6,21H7A1,1 0 0,0 8,20V19H16V20A1,1 0 0,0 17,21H18A1,1 0 0,0 19,20V18.22C19.61,17.67 20,16.88 20,16V6C20,2.5 16.42,2 12,2C7.58,2 4,2.5 4,6V16Z"
+          />
+        </svg>
+        Ônibus
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="pills-minibus-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-minibus"
+        type="button"
+        role="tab"
+        aria-controls="pills-minibus"
+        aria-selected="false"
+        routerLink="/lotacao"
+      >
+        <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M3,6C1.89,6 1,6.89 1,8V15H3A3,3 0 0,0 6,18A3,3 0 0,0 9,15H15A3,3 0 0,0 18,18A3,3 0 0,0 21,15H23V8C23,6.89 22.11,6 21,6H3M2.5,7.5H6.5V10H2.5V7.5M8,7.5H12V10H8V7.5M13.5,7.5H17.5V10H13.5V7.5M19,7.5H21.5V13L19,11V7.5M6,13.5A1.5,1.5 0 0,1 7.5,15A1.5,1.5 0 0,1 6,16.5A1.5,1.5 0 0,1 4.5,15A1.5,1.5 0 0,1 6,13.5M18,13.5A1.5,1.5 0 0,1 19.5,15A1.5,1.5 0 0,1 18,16.5A1.5,1.5 0 0,1 16.5,15A1.5,1.5 0 0,1 18,13.5Z"
+          />
+        </svg>
+        Lotação
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div
+      class="tab-pane fade show active"
+      id="pills-bus"
+      role="tabpanel"
+      aria-labelledby="pills-bus-tab"
+    ></div>
+    <div
+      class="tab-pane fade"
+      id="pills-minibus"
+      role="tabpanel"
+      aria-labelledby="pills-minibus-tab"
+    ></div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
