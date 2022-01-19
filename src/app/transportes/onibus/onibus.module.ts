@@ -17,6 +17,6 @@ import { OnibusRoutingModule } from './onibus-routing.module';
     OnibusRoutingModule,
     SharedModule
   ],
-  exports: [OnibusComponent]
+  exports: [OnibusComponent],
 })
 export class OnibusModule { }

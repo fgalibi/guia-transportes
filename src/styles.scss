@@ -1,7 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+$primary: #3986a9;
+
 .loading-spinner {
   padding: 25px;
   height: 10em;
+}
+@include media-breakpoint-up(lg) {
+  .card-transports {
+    p.card-text {
+      min-height: 3em;
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  .card-transports {
+    p.card-text {
+      min-height: 5em;
+    }
+  }
+}
+
+.card-transports {
+  text-align: center;
+  .card-title {
+    color: gray;
+  }
+  p.card-text {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @extend .fs-6, .text-break;
+  }
+  button {
+    background-color: $primary;
+    border-color: #366073;
+    &:hover {
+      background: #365f72;
+    }
+  }
+}
+
+.nav-pills {
+  .nav-link {
+    color: $primary;
+    &.active {
+      background-color: $primary;
+    }
+  }
 }

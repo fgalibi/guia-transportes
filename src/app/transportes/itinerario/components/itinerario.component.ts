@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ItinerarioService } from './../../services/itinerario.service';
-
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-import { Observable } from 'rxjs';
+import { ItinerarioService } from './../../services/itinerario.service';
 
 @Component({
   selector: 'app-itinerario',
@@ -15,16 +13,22 @@ import { Observable } from 'rxjs';
 export class ItinerarioComponent implements OnInit {
   itinerario$!: Observable<any>;
   itinerarioList: any[] = [];
+  itinerario: any = {
+    codigo: 0,
+    idLinha: 0,
+    nome: '',
+  };
+  page: number = 1;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private itinerarioService: ItinerarioService
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.getItinerario();
   }
+
+  ngOnInit(): void {}
 
   getItinerario() {
     this.itinerario$ = this.route.paramMap.pipe(
@@ -34,6 +38,9 @@ export class ItinerarioComponent implements OnInit {
     );
 
     this.itinerario$.subscribe((obj) => {
+      this.itinerario.codigo = obj['codigo'];
+      this.itinerario.idLinha = obj['idLinha'];
+      this.itinerario.nome = obj['nome'];
       let arr = Object.keys(obj).map((key) => ({ type: key, value: obj[key] }));
       this.itinerarioList = arr;
     });
@@ -42,5 +49,5 @@ export class ItinerarioComponent implements OnInit {
   onNavigate(value: any) {
     const url = `https://www.google.com/maps/?q=${value.lat},${value.lng}`;
     window.open(url, '_blank');
-}
+  }
 }

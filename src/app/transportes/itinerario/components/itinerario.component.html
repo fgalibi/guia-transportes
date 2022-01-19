@@ -1,13 +1,17 @@
+<h5 class="py-3">
+  {{ itinerario.codigo }}
+  <small class="text-muted">{{ itinerario.nome }}</small>
+</h5>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Localidade</th>
-      <th scope="col">Itinerário</th>
+      <th>Paradas</th>
+      <th scope="col">Localidade</th>
     </tr>
   </thead>
   <tbody *ngIf="itinerario$ | async; else loading">
-    <tr *ngFor="let item of itinerarioList; index as i">
-      <td>{{ item.type }}</td>
+    <tr *ngFor="let item of itinerarioList  | paginate: { itemsPerPage: 12, currentPage: page }; index as i">
+      <td>Ponto {{ item.type }}</td>
       <td>
         <button
           (click)="onNavigate(item.value)"
@@ -33,3 +37,10 @@
     </div>
   </ng-template>
 </table>
+<div class="pagination justify-content-center my-4">
+  <pagination-controls
+    (pageChange)="page = $event"
+    [previousLabel]="'Anterior'"
+    [nextLabel]="'Próximo'"
+  ></pagination-controls>
+</div>
